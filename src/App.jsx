@@ -1,45 +1,49 @@
-import React from 'react'
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
+import { useEffect, useState} from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
   
-  const personas = [
-    { nombre: 'Mauricio', apellido: 'Rocha', edad: 25 },
-    { nombre: 'Jesús', apellido: 'Angulo', edad: 16 },
-    { nombre: 'Luis', apellido: 'Guardado', edad: 17 },
-    { nombre: 'María', apellido: 'Rodríguez', edad: 30 },
-    { nombre: 'Carlos', apellido: 'Fernández', edad: 14 },
-    { nombre: 'Andrea', apellido: 'López', edad: 21 }
-  ];
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+        .then(response => response.json())
+        .then(data => setUsers(data))
+        .catch(error => console.error("Error al obtener los datos:", error));
+  }, []);
 
   return (
     <>
       <div>
-        <h2>Lista de personas</h2>
-        <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                <TableCell>Nombre</TableCell>
-                <TableCell>Apellido</TableCell>
-                <TableCell>Edad</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {personas.map((persona, index) => (
-                <TableRow key={index}>
-                  <TableCell>{persona.nombre}</TableCell>
-                  <TableCell>{persona.apellido}</TableCell>
-                  <TableCell>{persona.edad}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </div>
+            <h1>Lista de Usuarios</h1>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Usuario</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Ciudad</th>
+                        <th>Telefono</th>
+                        <th>Sitio Web</th>
+                        <th>Compañia</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {users.map(user => (
+                        <tr key={user.id}>
+                            <td>{user.username}</td>
+                            <td>{user.name}</td>
+                            <td>{user.email}</td>
+                            <td>{user.address.city}</td>
+                            <td>{user.phone}</td>
+                            <td>{user.website}</td>
+                            <td>{user.company.name}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
     </>
   )
 }
