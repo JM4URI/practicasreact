@@ -1,12 +1,7 @@
-# React + Vite
+React Router es una librería que sirve para manejar el enrutamiento en aplicaciones de React. Permite mostrar diferentes componentes dependiendo de la URL actual, sin necesidad de recargar la página, lo que da la sensación de una aplicación más fluida.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Tiene diferentes elementos:
+BrowserRouter: Sirve para habilitar el enrutamiento. Debe envolver toda la aplicación.
+Routes:	Se usa para agrupar las distintas rutas disponibles.
+Route: Se usa para establecer una ruta individual, que componente se muestra según el path.
+Link: Que funciona la etiqueta "<a>" de html, permite navegar sin recargar la página.
