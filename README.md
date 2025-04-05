@@ -5,3 +5,5 @@ BrowserRouter: Sirve para habilitar el enrutamiento. Debe envolver toda la aplic
 Routes:	Se usa para agrupar las distintas rutas disponibles.
 Route: Se usa para establecer una ruta individual, que componente se muestra según el path.
 Link: Que funciona la etiqueta "<a>" de html, permite navegar sin recargar la página.
+
+Me tomó un poco de tiempo entender como funcionaba la estructura con las carpetas y archivos de los componentes, pero cuando lo entendi me parecio interesante.
